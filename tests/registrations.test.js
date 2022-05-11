@@ -46,7 +46,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CZ 883335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals([], registrations.getRegNumbers())
+            assert.deepEqual([], registrations.getRegNumbers())
         })
 
         it("should return a list with two registration numbers since two valid registration numbers were added", () => {
@@ -55,7 +55,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CK 883335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals(["CA 883-335", "CK 883335"], registrations.getRegNumbers())
+            assert.deepEqual(["CA 883-335", "CK 883335"], registrations.getRegNumbers())
         })
 
         it("should return a list with one registration number since it was duplicate", () => {
@@ -64,7 +64,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CJ 213-335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals(["CJ 213-335"], registrations.getRegNumbers())
+            assert.deepEqual(["CJ 213-335"], registrations.getRegNumbers())
         })
     })
 
@@ -81,7 +81,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CJ 213-335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals(["CA 537-232", "CA 883-335"], registrations.filterByTownCode("CA"))
+            assert.deepEqual(["CA 537-232", "CA 883-335"], registrations.filterByTownCode("CA"))
         })
 
         it("should return an empty list since there are no registrations number from \"Bellville\"", () => {
@@ -96,7 +96,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CJ 213-335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals([], registrations.filterByTownCode("CY"))
+            assert.deepEqual([], registrations.filterByTownCode("CY"))
         })
 
         it("should return a list of registrations number from \"Malmesbury\"", () => {
@@ -111,7 +111,7 @@ describe("My Registration Number factory funcion", () => {
             registrations.addRegNumber(registrations.getRegNumber())
             registrations.setRegNumber("CJ 213-335")
             registrations.addRegNumber(registrations.getRegNumber())
-            assert.deepEquals(["CK 537232"], registrations.filterByTownCode("CK"))
+            assert.deepEqual(["CK 537232"], registrations.filterByTownCode("CK"))
         })
         
     })
