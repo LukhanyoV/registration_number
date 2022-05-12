@@ -15,6 +15,7 @@ const registrations = RegistrationNumber()
 const addAllToList = list => {
     display.innerHTML = ""
     list.forEach(el => addItem(el))
+    if(list.length === 0) display.innerHTML = "No registrations available"
 }
 
 // this function will add a node element to DOM
