@@ -31,6 +31,13 @@ const RegistrationNumber = () => {
     // get the error message
     const getErrorMessage = () => errorMsg
 
+    // reset everything
+    const reset = () => {
+        regNumber = ""
+        errorMsg = ""
+        regNumbers.splice(0,regNumbers.length)
+    }
+
     // test to see if the user gave a valid registration number
     const validateRegNumber = reg => {
         const regex = /[A-Z]{2,3}\s[0-9]{3}(\-|\s)?[0-9]{3}/
@@ -43,6 +50,7 @@ const RegistrationNumber = () => {
         addRegNumber,
         getRegNumbers,
         filterByTownCode,
-        getErrorMessage
+        getErrorMessage,
+        reset
     }
 }

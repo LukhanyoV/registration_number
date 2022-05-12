@@ -88,7 +88,9 @@ town.addEventListener("change", () => {
 // reset everything when we are done
 resetBtn.addEventListener("click", e => {
     e.preventDefault()
-    alert("Reset completed successfully")
     localStorage.clear("regNumbers")
-    location.reload()
+    registrations.reset()
+    error.style.color = "green"
+    error.innerHTML = "Registration reseted"
+    addAllToList(registrations.getRegNumbers())
 })
