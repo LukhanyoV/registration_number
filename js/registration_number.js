@@ -93,4 +93,5 @@ resetBtn.addEventListener("click", e => {
     error.style.color = "green"
     error.innerHTML = "Registration reseted"
     addAllToList(registrations.getRegNumbers())
+    setTimeout(() => error.innerHTML = "", 3000)
 })
