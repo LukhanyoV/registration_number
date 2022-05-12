@@ -23,19 +23,19 @@ describe("My Registration Number factory funcion", () => {
         it("should return \"Invalid registration number\" for \"CA 5327-232\"", () => {
             const registrations = RegistrationNumber()
             registrations.setRegNumber("CA 5327-232")
-            assert.equal("Invalid registration number", registrations.getRegNumber())
+            assert.equal("Invalid registration number", registrations.getErrorMessage())
         })
     
         it("should return \"Invalid registration number\" for \"ZZ 537-232\"", () => {
             const registrations = RegistrationNumber()
             registrations.setRegNumber("ZZ 537-232")
-            assert.equal("Invalid registration number", registrations.getRegNumber())
+            assert.equal("Invalid registration number", registrations.getErrorMessage())
         })
     
         it("should return \"Invalid registration number\" for \"CA 537FHJ232\"", () => {
             const registrations = RegistrationNumber()
             registrations.setRegNumber("CA 537FHJ232")
-            assert.equal("Invalid registration number", registrations.getRegNumber())
+            assert.equal("Invalid registration number", registrations.getErrorMessage())
         })
     })
 

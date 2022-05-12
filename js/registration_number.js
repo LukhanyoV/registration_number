@@ -50,19 +50,30 @@ addBtn.addEventListener("click", e => {
     registrations.setRegNumber(inputBox.value.toUpperCase())
     // get the registration number
     const reg = registrations.getRegNumber()
+    const errorMsg = registrations.getErrorMessage()
 
+    console.log(registrations.getRegNumbers())
     // if the registration number is not valid
     // show error message for three seconds
-    if(reg === "Invalid registration number"){
-        error.innerHTML = reg;
+    if(errorMsg !== ""){
+        if(errorMsg === "Registration number already exists"){
+            error.style.color = "#0000CD"
+            error.innerHTML = errorMsg
+        } else {
+            error.style.color = "red"
+            error.innerHTML = errorMsg
+        }
         setTimeout(() => error.innerHTML = "", 3000)
-    } 
+    }
     // if the registration number is valid
     // then add add it to the array of valid registration numbers
     else {
+        error.style.color = "green"
+        error.innerHTML = "Added successfully"
         registrations.addRegNumber(reg)
         addAllToList(registrations.getRegNumbers()) // add or update the registration number being displayed
         addToLocalStorage() // add or update the registration numbers in local storage
+        setTimeout(() => error.innerHTML = "", 3000)
     }
     // reset the form inputs
     document.querySelector(".regForm").reset()
