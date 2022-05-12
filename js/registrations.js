@@ -10,7 +10,9 @@ const RegistrationNumber = () => {
         if(validateRegNumber(reg) && !getRegNumbers().includes(reg)){
             regNumber = reg
         } else {
-            if(getRegNumbers().includes(reg)){
+            if(reg === ""){
+                errorMsg = "Please enter registration number"
+            } else if(getRegNumbers().includes(reg)){
                 errorMsg = "Registration number already exists"
             } else {
                 errorMsg = "Invalid registration number"
@@ -30,6 +32,9 @@ const RegistrationNumber = () => {
     
     // get the error message
     const getErrorMessage = () => errorMsg
+
+    // clear the error message
+    const clearErrorMessage = () => errorMsg = ""
 
     // reset everything
     const reset = () => {
@@ -51,6 +56,7 @@ const RegistrationNumber = () => {
         getRegNumbers,
         filterByTownCode,
         getErrorMessage,
-        reset
+        reset,
+        clearErrorMessage
     }
 }
