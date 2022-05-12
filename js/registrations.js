@@ -6,7 +6,7 @@ const RegistrationNumber = () => {
     
     // set the registration number if it is valid
     const setRegNumber = reg => {
-        reg = reg.trim()
+        reg = reg.trim().toUpperCase()
         if(validateRegNumber(reg) && !getRegNumbers().includes(reg)){
             regNumber = reg
         } else {
