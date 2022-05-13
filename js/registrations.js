@@ -7,12 +7,12 @@ const RegistrationNumber = () => {
     // set the registration number if it is valid
     const setRegNumber = reg => {
         reg = reg.trim().toUpperCase()
-        if(validateRegNumber(reg) && !getRegNumbers().includes(reg)){
+        if(validateRegNumber(reg) && !isDuplicate(reg)){
             regNumber = reg
         } else {
             if(reg === ""){
                 errorMsg = "Please enter registration number"
-            } else if(getRegNumbers().includes(reg)){
+            } else if(isDuplicate(reg)){
                 errorMsg = "Registration number already exists"
             } else {
                 errorMsg = "Invalid registration number"
@@ -23,7 +23,7 @@ const RegistrationNumber = () => {
     const getRegNumber = () => regNumber
     
     // add valid registration number to array
-    const addRegNumber = reg => !regNumbers.includes(reg) && validateRegNumber(reg) && regNumbers.push(reg)
+    const addRegNumber = reg => !isDuplicate(reg) && validateRegNumber(reg) && regNumbers.push(reg)
     // get the valid registration number
     const getRegNumbers = () => regNumbers
 
@@ -35,6 +35,9 @@ const RegistrationNumber = () => {
 
     // clear the error message
     const clearErrorMessage = () => errorMsg = ""
+
+    // check if passed in registration number is a duplicate is a duplicate
+    const isDuplicate = reg => getRegNumbers().includes(reg)
 
     // reset everything
     const reset = () => {

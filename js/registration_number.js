@@ -60,11 +60,9 @@ addBtn.addEventListener("click", e => {
         if(errorMsg === "Registration number already exists"){
             error.style.color = "#0000CD"
             error.innerHTML = errorMsg
-            registrations.clearErrorMessage()
         } else {
             error.style.color = "red"
             error.innerHTML = errorMsg
-            registrations.clearErrorMessage()
         }
         setTimeout(() => error.innerHTML = "", 3000)
     }
@@ -73,12 +71,13 @@ addBtn.addEventListener("click", e => {
     else {
         error.style.color = "green"
         error.innerHTML = "Added successfully"
-        registrations.clearErrorMessage()
         registrations.addRegNumber(reg)
         addAllToList(registrations.getRegNumbers()) // add or update the registration number being displayed
         addToLocalStorage() // add or update the registration numbers in local storage
         setTimeout(() => error.innerHTML = "", 3000)
     }
+    // reset the error messge
+    registrations.clearErrorMessage()
     // reset the form inputs
     document.querySelector(".regForm").reset()
 })
